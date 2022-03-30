@@ -205,10 +205,7 @@
         </div>
         </div>
         @endif
-    </header>
-    <!-- /HEADER -->
-
-    <!-- NAVIGATION -->
+         <!-- NAVIGATION -->
     <nav id="navigation">
         <!-- container -->
         <div class="container">
@@ -216,19 +213,27 @@
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
-                    <li class="active"><a href="#">Trang Chủ</a></li>
-                    <li><a href="#">Máy Tính Xách Tay</a></li>
-                    <li><a href="#">Điện thoại</a></li>
-                    <li><a href="#">Máy Ảnh</a></li>
-                    <li><a href="#">Phụ Kiện</a></li>
+                    <li><a href="/">Trang Chủ</a></li>
+                    @foreach($categories as $item)
+
+                    <li><a href="{{url('categorize', $item->id)}}">{{$item->cat_name}}</a></li>
+                   
+                    @endforeach 
                 </ul>
                 <!-- /NAV -->
             </div>
+         
             <!-- /responsive-nav -->
         </div>
         <!-- /container -->
     </nav>
+    
     <!-- /NAVIGATION -->
+
+    </header>
+    <!-- /HEADER -->
+
+
 
     @yield('content')
 

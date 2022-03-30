@@ -3,7 +3,7 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="{{url('showproduct')}}"><img src="https://theme.hstatic.net/1000026716/1000440777/14/logo.svg?v=24588" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="{{url('showproduct')}}"><img style="height:60px" src="admin/assets/images/logo.png" alt="logo" /></a>
           <a class="sidebar-brand brand-logo-mini" href="/redirect"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav menu" >
@@ -27,11 +27,20 @@
           </li>
 
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('addcategory')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Thêm thể loại</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showproduct')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Show All Products</span>
+              <span class="menu-title">Danh sách sản phẩm</span>
             </a>
           </li>
           
@@ -40,7 +49,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Add New Products</span>
+              <span class="menu-title">Thêm sản phẩm</span>
             </a>
           </li>
         
@@ -49,7 +58,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Orders</span>
+              <span class="menu-title">Đơn hàng</span>
             </a>
           </li>
 

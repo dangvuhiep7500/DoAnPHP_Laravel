@@ -28,12 +28,9 @@
         </div>
         @endif
 
-
-
             <table>
 
             <tr style="background-color: grey;">
-
                 <td style="padding:20px">Tên sản phẩm</td>
                 <td style="padding:20px">Mô tả</td>
                 <td style="padding:20px">Số lượng</td>
@@ -41,8 +38,6 @@
                 <td style="padding:20px">Hình ảnh</td>
                 <td style="padding:20px">Cập nhật</td>
                 <td style="padding:20px">Xóa</td>
-
-
             </tr>
 
             @foreach($data as $product)
@@ -58,11 +53,11 @@
                 </td>
 
                 <td style="padding:10px">
-                    <a class="btn btn-primary" href="{{url('updateview', $product->id)}}">Update</a>
+                    <a class="btn btn-primary" href="{{url('updateview', $product->id)}}">Cập nhật</a>
                 </td>
 
                 <td style="padding:10px" >
-                    <a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{url('deleteproduct', $product->id)}}">Delete</a>
+                    <a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{url('deleteproduct', $product->id)}}">Xoá</a>
                 </td>
 
             </tr>

@@ -10,7 +10,7 @@
     <a href="/" class="mt-4 btn btn-success" >Tiếp tục mua hàng</a>
     @else
     
-<style type="text/css">
+    <style type="text/css">
         table, th, td{
             font-family: sans-serif,"Segoe UI", Helvetica, Arial;
             border:1px solid #ccc;
@@ -63,11 +63,12 @@
             <!-- <input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden=""> -->
             <!-- <input data-id="{{$carts->quantity}}" type="number" value="{{$carts->quantity}}" name="quantity[]" class="form-control" style="width:50px; text-align:center"> -->
                 <!-- {{$carts->quantity}} -->
-                <div class="quantity buttons_added">
-	        <input type="button" value="-" class="minus" wire:click="decreaseQuantity('{{$carts->id}}')">
-            <input type="number" step="1" min="1" max="" value="{{$carts->quantity}}" name="quantity[]" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
-            <input type="button" value="+" class="plus" wire:click="increaseQuantity('{{$carts->id}}')">
-                </div>
+               
+	        <!-- <input type="button" value="-" class="minus" wire:click="decreaseQuantity('{{$carts->id}}')"> -->
+            <input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden="">
+                {{$carts->quantity}}
+            <!-- <input type="button" value="+" class="plus" wire:click="increaseQuantity('{{$carts->id}}')"> -->
+               
             </td>
             <td style="padding:10px">
             <input class="iprice" type="text" name="price[]" value="{{$carts->price}}" hidden="">
@@ -78,58 +79,24 @@
             </td>
         </tr>  
     @endforeach    
-    </tbody>
-    <tr>
-        <td colspan="2" style="font-weight: bold; font-size: 20px; text-align:center">Tổng tiền:</td>	
-        <td class='itotal'colspan="3"style="font-weight: bold; font-size: 20px; text-align:center">					
-            <span>
-                {{number_format($total, 0, '', ',');}}đ
-            </span>
-        </td>
-    </tr>  
-    </table>
-   
-    <button class="mt-4 btn btn-success">Thanh Toán</button>
-        
+            </tbody>
+            <tr>
+                <td colspan="2" style="font-weight: bold; font-size: 20px; text-align:center">Tổng tiền:</td>	
+                <td class='itotal'colspan="3"style="font-weight: bold; font-size: 20px; text-align:center">					
+                    <span>
+                        {{number_format($total, 0, '', ',');}}đ
+                    </span>
+                </td>
+            </tr>  
+            </table>
 
-    </form>
-    
-    <button class="mt-4 btn btn-success" >Cập Nhật</button>
-    <a href="/" class="mt-4 btn btn-success" >Tiếp tục mua hàng</a>
+            <button class="mt-4 btn btn-success">Thanh Toán</button>
 
-    
+            </form>
+            
+            <!-- <button class="mt-4 btn btn-success" >Cập Nhật</button> -->
+            <a href="/" class="mt-4 btn btn-success" >Tiếp tục mua hàng</a>
     </div>
 </div>
-
     @endif
     @endsection
-    <!-- <script type="text/javascript">
-            (function(){
-                const classname = document.querySelectorAll('.quantity')
-
-                Array.from(classname).forEach(function(elenment) {
-                    element.addEventListener('change',function(){
-                        alert('change');
-                        console.log(element)
-                    })
-                    
-                })
-            })();
-
-        </script> -->
-    <!-- <script type="text/javascript">
-            // var iprice=document.getElementsByClassName('iprice');
-            // var iquantity=document.getElementsByClassName('iquantity');
-            // var itotal=document.getElementsByClassName('itotal');
-            // function subTotal(){
-            //     for(i=0;i<iprice.length;i++){
-            //         itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
-            //     }
-            // }
-            $(".edit-all").on("click",function(){
-                alert("edit all");
-            });
-         
-        </script>  -->
-     
-        

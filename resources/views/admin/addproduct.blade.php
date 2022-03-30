@@ -37,7 +37,7 @@
 
         <div class="container" align="center">
 
-        <h1 class="title">Add product</h1>
+        <h1 class="title">Thêm sản phẩm</h1>
 
 
 
@@ -63,39 +63,38 @@
         
 
         <div style="padding:15px">
-            <label>Product title</label>
-            <input class="input"  type="text" name="title" placeholder="give a product title" required="">
+            <label>Tên sản phẩm:</label>
+            <input class="input"  type="text" name="title" placeholder="Nhập tên sản phẩm" required="">
         </div>
 
         <div style="padding:15px">
-            <label>Price</label>
-            <input class="input" type="number" name="price" placeholder="give a price" required="">
+            <label>Giá chính:</label>
+            <input class="input" type="number" name="price" placeholder="Nhập giá chính" required="">
         </div>
 
         <div style="padding:15px">
-            <label>PriceNsale</label>
-            <input class="input" type="number" name="priceNsale" placeholder="give a pricesSale" required="">
+            <label>Giá gốc:</label>
+            <input class="input" type="number" name="priceNsale" placeholder="Nhập giá gốc" required="">
         </div>
 
         <div style="padding:15px">
-            <label>Category</label>
-            <input class="input" type="text" name="category" placeholder="give a category" required="">
-        </div>
-
-
-        <div style="padding:15px">
-            <label>Description</label>
-            <input class="input" type="text" name="des" placeholder="give a description" required="">
+            <label>Thể loại:</label>
+            <input class="input" type="text" name="category" placeholder="Nhập thể loại" required="">
         </div>
 
         <div style="padding:15px">
-            <label>Quantity</label>
-            <input class="input" type="text" name="quantity" placeholder="give a product quantity" required="">
+            <label>Mô tả:</label>
+            <input class="input" type="text" name="des" placeholder="Nhập mô tả" required="">
         </div>
 
         <div style="padding:15px">
-            <label>Image</label>
-            <input class="input" type="text" name="image" placeholder="give a product quantity" required="">
+            <label>ID_Thể loại:</label>
+            <input class="input" type="text" name="category_id" placeholder="Nhập id thể loại" required="">
+        </div>
+
+        <div style="padding:15px">
+            <label>Hình Ảnh:</label>
+            <input class="input" type="text" name="image" placeholder="Nhập link hình ảnh" required="">
         </div>
 
         <!-- <div style="padding:15px">

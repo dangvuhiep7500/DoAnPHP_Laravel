@@ -25,13 +25,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
 route::get('/redirect',[HomeController::class,'redirect']);
 
+// Route::get('/categorize/{category}', 'UserProductsController@products')->name('categorize');
+
+route::get('/categorize/{category}',[HomeController::class,'productcategory']);
 
 route::get('/',[HomeController::class,'index']);
 
 route::get('/productdetail/{id}',[HomeController::class,'productdetail']);
+
+route::get('/addcategory',[AdminController::class,'addcategory']);
+
+route::post('/uploadcategory',[AdminController::class,'uploadcategory']);
 
 route::get('/addproduct',[AdminController::class,'addproduct']);
 

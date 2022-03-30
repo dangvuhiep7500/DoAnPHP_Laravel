@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+   
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -67,7 +67,7 @@
             <div class="col-md-12">
                 <div class="section-title">
                     <h3 class="title">Sản Phẩm Mới Nhất</h3>
-                    <div class="section-nav">
+                    <!-- <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <li class="active">
                                 <a data-toggle="tab" href="#tab1">Laptops</a>
@@ -76,7 +76,7 @@
                             <li><a data-toggle="tab" href="#tab1">Máy Ảnh</a></li>
                             <li><a data-toggle="tab" href="#tab1">Phụ Kiện</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- /section title -->
@@ -88,14 +88,4 @@
 <!-- /SECTION -->
 
 @include('user.product')
-<!-- <div class="test">
-    @foreach ($data as $user)
-    <tr>
-        <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->price }}</td>
-        <td><a type="button" href='delete?id={{ $user->id }}'>Delete</a></td>
-    </tr>
-    @endforeach
-</div> -->
 @endsection

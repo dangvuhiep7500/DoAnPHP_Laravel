@@ -16,6 +16,8 @@ use App\Models\Cart;
 
 use App\Models\Order;
 
+use App\Models\Category;
+
 
 
 class HomeController extends Controller
@@ -30,11 +32,18 @@ class HomeController extends Controller
         {
             $data = product::paginate(8);
 
+            $categories = category::all();
+
             $user=auth()->user();
 
             $count=cart::where('phone', $user->phone)->count();
 
-            return view('user.home', compact('data','count'));
+            return view('user.home')->with([
+                'data' => $data,
+                'count' => $count,       
+                'categories' => $categories,
+            ]);
+           
         }
     }
 
@@ -44,35 +53,63 @@ class HomeController extends Controller
         }
         else{
             $data = product::paginate(8);
-            return view('user.home', compact('data'));
+
+            $categories = Category::all();
+
+            return view('user.home')->with([
+                'data' => $data,
+                'categories' => $categories,
+            ]);
+          
         }
-        
     }
+
+    public function productcategory(Category $category)
+    {  
+        $category->load('products');
+
+        $categories = Category::all();
+        
+         if($user=auth()->user()){
+            $count=cart::where('phone', $user->phone)->count();
+            return view('user.categorize')->withCategory($category)->with([
+                'categories' => $categories,
+                'count' => $count,  
+            ]);;
+         }
+        return view('user.categorize')->withCategory($category)->with([
+            'categories' => $categories,
+        ]);
+    } 
 
     public function productdetail($id){
        
              $data= product::find($id);
+             $categories = Category::all();
              if($user=auth()->user()){
                 $count=cart::where('phone', $user->phone)->count();
-                return view('user.productdetail', ['product'=>$data],compact('count'));
+                return view('user.productdetail', ['product'=>$data],compact('count','categories'));
              }
-             
-            return view('user.productdetail', ['product'=>$data]);
+           
+            return view('user.productdetail', ['product'=>$data],['categories' => $categories]);
 
     }
 
     public function search(Request $request)
     {
+        $categories = Category::all();
+
         $search=$request->search;
+        
         $data=product::where('title', 'Like', '%'.$search.'%')->paginate(8);
         
         if($user=auth()->user()){     
             $count=cart::where('phone', $user->phone)->count();
-            return view('user.home', compact('data','count'));
+            return view('user.home', compact('data','count','categories'));
             
         }
         else{
-            return view('user.home', compact('data'));
+            return view('user.home', compact('data','categories'));
         }
         
     }
@@ -114,24 +151,9 @@ class HomeController extends Controller
 
     }
 
-    // public function increaseQuantity($id){
-    //     $product = cart::find($id);
-
-    //     $quantity= $product->$quantity + 1;
-
-    //     cart::update($id,$quantity);
-
-    // }
-    // public function decreaseQuantity($id){
-    //     $product = cart::find($id);
-
-    //     $quantity= $product->$quantity - 1;
-
-    //     cart::update($id,$quantity);
-    // }
-
     public function showcart()
     {
+        $categories = Category::all();
         
         $user=auth()->user();
         
@@ -143,19 +165,21 @@ class HomeController extends Controller
 
         
 
-        return view('user.showcart',compact('count','cart','total'));
+        return view('user.showcart',compact('count','cart','total','categories'));
     }
 
 
     public function showpurchasehistory()
     {
+        $categories = Category::all();
+
         $user=auth()->user();
 
         $history=order::all();
 
         $count=cart::where('phone', $user->phone)->count();
 
-        return view('user.purchasehistory', compact('history','count'));
+        return view('user.purchasehistory', compact('history','count','categories'));
     }
 
     public function deletecart($id)

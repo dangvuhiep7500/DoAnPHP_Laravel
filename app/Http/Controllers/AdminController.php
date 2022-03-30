@@ -8,6 +8,8 @@ use App\Models\Product;
 
 use App\Models\Order;
 
+use App\Models\Category;
+
 
 class AdminController extends Controller
 {
@@ -37,7 +39,7 @@ class AdminController extends Controller
 
         $data->description=$request->des;
 
-        $data->quantity=$request->quantity;
+        $data->category_id=$request->category_id;
 
         $data->image=$request->image;
 
@@ -47,6 +49,23 @@ class AdminController extends Controller
 
 
     }
+
+    public function addcategory(){
+        return view('admin.addcategory');
+    }
+
+    public function uploadcategory(Request $request)
+    {
+        $data=new category();
+
+        $data->cat_name=$request->cat_name;
+
+        $data->save();
+
+        return redirect('/addcategory')->with('message', 'Thêm thể loại vào dữ liệu thành công');
+
+    }
+
 
     public function showproduct(){
         $data=product::all();
@@ -89,9 +108,9 @@ class AdminController extends Controller
 
         $data->description=$request->des;
 
-        $data->quantity=$request->quantity;
-
         $data->image=$request->image;
+        
+        $data->category_id=$request->category_id;
 
         $data->save();
 

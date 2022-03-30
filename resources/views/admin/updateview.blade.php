@@ -63,40 +63,40 @@
         
 
         <div style="padding:15px">
-            <label>Product title</label>
+            <label>Tên sản phẩm:</label>
             <input class="input"  type="text" name="title" value="{{$data->title}}" required="">
         </div>
 
         <div style="padding:15px">
-            <label>Price</label>
+            <label>Giá chính:</label>
             <input class="input" type="number" value="{{$data->price}}" name="price"  required="">
         </div>
 
         <div style="padding:15px">
-            <label>PriceNsale</label>
+            <label>Giá gốc:</label>
             <input class="input" type="number" value="{{$data->priceNsale}}" name="priceNsale"  required="">
         </div>
 
         <div style="padding:15px">
-            <label>Category</label>
+            <label>Thể loại:</label>
             <input class="input" type="text" value="{{$data->category}}" name="category"  required="">
         </div>
 
         <div style="padding:15px">
-            <label>Description</label>
+            <label>Mô tả:</label>
             <input class="input" type="text" value="{{$data->description}}" name="des"  required="">
         </div>
-
+        
         <div style="padding:15px">
-            <label>Quantity</label>
-            <input class="input" type="text" value="{{$data->quantity}}" name="quantity"  required="">
+            <label>ID_Thể loại:</label>
+            <input class="input" type="text" value="{{$data->category_id}}" name="category_id"  required="">
         </div>
-
+        
         <div style="padding:15px">
-            <label>Image</label>
+            <label>Hình Ảnh:</label>
             <input class="input" type="text" value="{{$data->image}}" name="image"  required="">
         </div>
-
+        
         <!-- <div style="padding:15px">
             <label>Old Image</label>
             <img height="100" width="100" src="/productimage/{{$data->image}}" alt="">
