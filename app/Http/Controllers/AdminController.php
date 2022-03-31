@@ -13,21 +13,17 @@ use App\Models\Category;
 
 class AdminController extends Controller
 {
-    public function addproduct(){
-        return view('admin.addproduct');
+    public function addproduct(Request $request){
+        $categories = category::all();
+
+        $categories->cat_name=$request->cat_name;
+
+        return view('admin.addproduct',['categories'=>$categories]);
     }
 
     public function uploadproduct(Request $request)
     {
         $data=new product();
-
-        // $image=$request->file;
-
-        // $imagename=time().'.'.$image->getClientOriginalExtension();
-
-        // $request->file->move('productimage', $imagename);
-
-        // $data->image=$imagename;
 
         $data->title=$request->title;
 
@@ -44,6 +40,8 @@ class AdminController extends Controller
         $data->image=$request->image;
 
         $data->save();
+
+        
 
         return redirect('/showproduct')->with('message', 'Sản phẩm đã được thêm vào dữ liệu thành công');
 
@@ -84,12 +82,14 @@ class AdminController extends Controller
 
     }
 
-    public function updateview($id)
+    public function updateview(Request $request,$id)
     {
 
         $data=product::find($id);
 
-        return view('admin.updateview', compact('data'));
+        $categories = category::all();
+
+        return view('admin.updateview', compact('data','categories'));
 
     }
 

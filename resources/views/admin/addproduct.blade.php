@@ -87,11 +87,19 @@
             <input class="input" type="text" name="des" placeholder="Nhập mô tả" required="">
         </div>
 
-        <div style="padding:15px">
+        <!-- <div style="padding:15px">
             <label>ID_Thể loại:</label>
             <input class="input" type="text" name="category_id" placeholder="Nhập id thể loại" required="">
+        </div> -->
+        <div style="padding:15px">
+            <label>Thể loại:</label>
+            <select class="input" name="category_id" style="padding-right:7.5rem">
+            @foreach($categories as $category)
+            <option value="{{($category->id)}}">{{($category->cat_name)}}</option>
+            @endforeach
+            </select>
         </div>
-
+        
         <div style="padding:15px">
             <label>Hình Ảnh:</label>
             <input class="input" type="text" name="image" placeholder="Nhập link hình ảnh" required="">

@@ -86,12 +86,17 @@
             <label>Mô tả:</label>
             <input class="input" type="text" value="{{$data->description}}" name="des"  required="">
         </div>
-        
+
         <div style="padding:15px">
-            <label>ID_Thể loại:</label>
-            <input class="input" type="text" value="{{$data->category_id}}" name="category_id"  required="">
+            <label>Thể loại:</label>
+            <select class="input" name="category_id" style="padding-right:7.5rem" >
+            @foreach($categories as $category)
+            <option value="{{$category->id}}" {{$category->id == $data->category_id ? 'selected' : ''}} >{{($category->cat_name)}}</option>
+            @endforeach
+            </select>
         </div>
         
+
         <div style="padding:15px">
             <label>Hình Ảnh:</label>
             <input class="input" type="text" value="{{$data->image}}" name="image"  required="">

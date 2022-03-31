@@ -13,7 +13,7 @@
                             </a>
                         </div>
                         <div class="product-body" style = "text-align: -webkit-center">
-                            <p class="product-category">{{$product->category}}</p>
+                            <p class="product-category">{{$product->category_id}}</p>
                                 <h3 class="product-name">
                             <a href="{{url('productdetail', $product->id)}}">{{$product->title}}</a>
                                 </h3>
