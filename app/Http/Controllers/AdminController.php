@@ -29,8 +29,6 @@ class AdminController extends Controller
 
         $data->priceNsale=$request->priceNsale;
 
-        $data->category=$request->category;
-
         $data->price=$request->price;
 
         $data->description=$request->des;
@@ -103,8 +101,6 @@ class AdminController extends Controller
         $data->price=$request->price;
 
         $data->priceNSale=$request->priceNsale;
-
-        $data->category=$request->category;
 
         $data->description=$request->des;
 

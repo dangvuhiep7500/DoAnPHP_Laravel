@@ -190,21 +190,12 @@
                     <!-- /ACCOUNT -->
                 </div>
                 <!-- row -->
+                
             </div>
             <!-- container -->
         </div>
         <!-- /MAIN HEADER -->
 
-        @if(session()->has('message'))
-        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show">
-   
-        <div style="float:right; width:300px" class="alert alert-success">
-
-        <button  type="button" class="close" data-dismiss="alert">x</button>
-            {{session()->get('message')}}
-        </div>
-        </div>
-        @endif
          <!-- NAVIGATION -->
     <nav id="navigation">
         <!-- container -->
@@ -228,6 +219,16 @@
         <!-- /container -->
     </nav>
     
+        @if(session()->has('message'))
+        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show">
+   
+        <div style="float:right; width:300px" class="alert alert-success">
+
+        <button  type="button" class="close" data-dismiss="alert">x</button>
+            {{session()->get('message')}}
+        </div>
+        </div>
+        @endif
     <!-- /NAVIGATION -->
 
     </header>

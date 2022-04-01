@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('cat_name')->unique();
             $table->timestamps();
         });
