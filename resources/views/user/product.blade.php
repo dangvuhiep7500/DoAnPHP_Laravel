@@ -2,7 +2,7 @@
 <div class="latest-products">
     <div class="container">
         <div class="row">
-             @foreach ($data as $product)
+            @foreach ($data as $product)     
                 <div class="col-md-3" style = "padding-bottom:40px">
                     <div class="product">
                         <div class="product-img">
@@ -13,7 +13,7 @@
                             </a>
                         </div>
                         <div class="product-body" style = "text-align: -webkit-center">
-                            <p class="product-category">{{$product->category_id}}</p>
+                            <p class="product-category">{{$product->category->cat_name}}</p>
                                 <h3 class="product-name">
                             <a href="{{url('productdetail', $product->id)}}">{{$product->title}}</a>
                                 </h3>

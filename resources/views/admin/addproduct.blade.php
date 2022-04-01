@@ -64,7 +64,7 @@
 
         <div style="padding:15px">
             <label>Tên sản phẩm:</label>
-            <input class="input"  type="text" name="title" placeholder="Nhập tên sản phẩm" required="">
+            <input class="input" type="text" name="title" placeholder="Nhập tên sản phẩm" required="">
         </div>
 
         <div style="padding:15px">
@@ -78,22 +78,15 @@
         </div>
 
         <div style="padding:15px">
-            <label>Thể loại:</label>
-            <input class="input" type="text" name="category" placeholder="Nhập thể loại" required="">
-        </div>
-
-        <div style="padding:15px">
             <label>Mô tả:</label>
-            <input class="input" type="text" name="des" placeholder="Nhập mô tả" required="">
+            <textarea class="input" name="des" placeholder="Nhập mô tả" maxlength="15000" rows="10" cols="30"></textarea>
+            <!-- <input class="input" type="text" name="des" placeholder="Nhập mô tả" maxlength="15000" required=""> -->
         </div>
 
-        <!-- <div style="padding:15px">
-            <label>ID_Thể loại:</label>
-            <input class="input" type="text" name="category_id" placeholder="Nhập id thể loại" required="">
-        </div> -->
         <div style="padding:15px">
             <label>Thể loại:</label>
-            <select class="input" name="category_id" style="padding-right:7.5rem">
+            <select  class="input" name="category_id" style="padding-right:7.5rem">
+            <option >--chọn--</option>
             @foreach($categories as $category)
             <option value="{{($category->id)}}">{{($category->cat_name)}}</option>
             @endforeach
@@ -104,10 +97,6 @@
             <label>Hình Ảnh:</label>
             <input class="input" type="text" name="image" placeholder="Nhập link hình ảnh" required="">
         </div>
-
-        <!-- <div style="padding:15px">
-            <input  type="file" name="file">
-        </div> -->
 
         <div style="padding:15px">
             <input  class="btn btn-success" type="submit">

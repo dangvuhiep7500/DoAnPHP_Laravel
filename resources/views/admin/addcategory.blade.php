@@ -38,9 +38,19 @@
         <div class="container" align="center">
 
         <h1 class="title">Thêm thể loại</h1>
+        
+    
+        <form action="{{url('uploadcategory')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div style="padding:15px;">
+            <label>Tên thể loại</label>
+            <input style ="width: 25%;" class="input"  type="text" name="cat_name" placeholder="Nhập tên thể loại" required="">
+        </div>
 
-
-
+        <div style="padding:15px">
+            <input  class="btn btn-success" type="submit">
+        </div>
+        </form>
         @if(session()->has('message'))
         <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show">
    
@@ -51,21 +61,6 @@
         </div>
         </div>
         @endif
-
-        
-    
-        <form action="{{url('uploadcategory')}}" method="post" enctype="multipart/form-data">
-        @csrf
-        <div style="padding:15px">
-            <label>Tên thể loại</label>
-            <input class="input"  type="text" name="cat_name" placeholder="Nhập tên thể loại" required="">
-        </div>
-
-        <div style="padding:15px">
-            <input  class="btn btn-success" type="submit">
-        </div>
-        </form>
-
         </div>
 
         </div>

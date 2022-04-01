@@ -62,11 +62,11 @@
 </div>
 <!-- /SECTION -->
 <div class="col-md-12">
-                <div class="section-title">
-                    <h3 class="title">Sản Phẩm</h3>
-                </div>
-            </div>
-                    @foreach($category->products as $product) 
+    <div class="section-title">
+        <h3 class="title">Sản Phẩm</h3>
+    </div>
+</div>
+@foreach($category->products as $product) 
                             <div class="col-md-3" style = "padding-bottom:40px">
                                 <div class="product">
                                     <div class="product-img">
@@ -77,7 +77,7 @@
                                     </a>
                                     </div>
                                     <div class="product-body" style = "text-align: -webkit-center">
-                                        <p class="product-category">{{$product->category}}</p>
+                                        <p class="product-category">{{$product->category->cat_name}}</p>
                                         <h3 class="product-name">
                                             <a href="{{url('productdetail', $product->id)}}">{{$product->title}}</a>
                                         </h3>
@@ -104,12 +104,13 @@
                             </div>
                             @endforeach
 
-        </div>
                 @if(method_exists($category->products,'links'))
                 <div class="d-flex justify-content-center">
                 {!! $category->products->links() !!}
                 </div>
                 @endif
+        </div>
+             
     </div>
                 
 </div>

@@ -36,7 +36,7 @@
 
         <div class="container" align="center">
 
-        <h1 class="title">Update Product</h1>
+        <h1 class="title">Cập nhật sản phẩm</h1>
 
 
 
@@ -78,13 +78,9 @@
         </div>
 
         <div style="padding:15px">
-            <label>Thể loại:</label>
-            <input class="input" type="text" value="{{$data->category}}" name="category"  required="">
-        </div>
-
-        <div style="padding:15px">
             <label>Mô tả:</label>
-            <input class="input" type="text" value="{{$data->description}}" name="des"  required="">
+            <textarea class="input"  name="des" placeholder="Nhập mô tả" maxlength="15000" rows="10" cols="30">{{$data->description}}</textarea>
+            <!-- <input class="input" type="text" value="{{$data->description}}" name="des"  required=""> -->
         </div>
 
         <div style="padding:15px">
