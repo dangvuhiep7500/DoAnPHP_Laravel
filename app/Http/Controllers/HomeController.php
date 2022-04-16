@@ -119,11 +119,29 @@ class HomeController extends Controller
 
         if(Auth::id())
         {
-            
+            $flag= false ;
             $user=auth()->user();
 
             $product=product::find($id);
 
+            $carts = cart::all();
+
+            for($i=0;$i<$carts->count();$i++){
+
+                if($product->title == $carts[$i]->product_title ){
+                    $flag = true;
+            
+                    $carts[$i]->quantity+=$request->quantity;
+
+                    $carts[$i]->update();
+
+                    break;
+            }
+            else{
+                $flag=false;
+            }
+         }
+         if($flag== false){
             $cart=new cart;
 
             $cart->name=$user->name;
@@ -137,11 +155,13 @@ class HomeController extends Controller
             $cart->price=$product->price*$request->quantity;
 
             $cart->image=$product->image;
-            
+        
             $cart->quantity=$request->quantity;
 
             $cart->save();
 
+            
+        }
             return redirect('showcart')->with('message', 'Sản phẩm đã được thêm thành công');
         }
         else
@@ -171,15 +191,19 @@ class HomeController extends Controller
 
     public function showpurchasehistory()
     {
-        $categories = Category::all();
+     
+            $categories = Category::all();
 
-        $user=auth()->user();
-
-        $history=order::all();
-
-        $count=cart::where('phone', $user->phone)->count();
-
-        return view('user.purchasehistory', compact('history','count','categories'));
+            $user=auth()->user();
+    
+            $history=order::where('phone', $user->phone)->get();
+    
+            $count=cart::where('phone', $user->phone)->count();
+    
+            return view('user.purchasehistory', compact('history','count','categories'));
+    
+        
+     
     }
 
     public function deletecart($id)
